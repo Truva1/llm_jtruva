@@ -55,3 +55,29 @@ JSON Body
 }
 ````
 
+## Enviar post con pyton
+```python
+import requests
+
+url = 'http://localhost:11434/api/generate'
+myobj = {
+  "model": "tinyllama",
+  "prompt": "Why is the sky blue?"
+  "stream": False
+}
+
+x = requests.post(url, json = myobj)
+
+print(x.text)
+```
+
+## Estructura básica para realizar una consulta a groq usando su API REST
+```bash
+export GROQ_API_KEY=<your-api-key-here> #definir variable de entorno
+
+curl -X POST "https://api.groq.com/openai/v1/chat/completions" \
+     -H "Authorization: Bearer $GROQ_API_KEY" \
+     -H "Content-Type: application/json" \
+     -d '{"messages": [{"role": "user", "content": "Explain the importance of fast language models"}], "model": "llama3-8b-8192"}'
+```
+
