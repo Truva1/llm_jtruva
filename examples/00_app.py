@@ -1,4 +1,5 @@
 import requests
+import json
 
 url = 'http://localhost:11434/api/generate'
 myobj = {
@@ -10,3 +11,5 @@ myobj = {
 x = requests.post(url, json = myobj)
 
 print(x.text)
+y = json.loads(x.text)
+print(y["response"])
